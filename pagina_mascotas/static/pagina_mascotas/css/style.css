@@ -1,0 +1,121 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.pie_pagina{
+    background-color:white;
+    color: black;
+    text-align: center;
+}
+
+.navbar-red{
+    background-color: red;
+}
+
+.navbar-texto-blanco .nav-link{
+    color: white;
+}
+.navbar{
+    color: white;
+}
+
+#icono_pag{
+    width: 30px;
+    height: 30px;
+}
+
+.dropdown{
+    font-size: 20px;
+    margin-top: -1px;
+}
+
+.card1 {
+    text-align: center;
+    display: block;
+
+}
+
+.notis {
+    background-color: red;
+    width: 100vw;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.notis-content {
+    max-width: 1200px; /* Ajusta según tus necesidades */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.notis img {
+    height: 300px;
+    margin-right: 20px;
+}
+
+.notis h2, .notis input, .notis button {
+    margin: 10px 0;
+}
+
+.notis h2 {
+    font-size: 2rem;
+}
+
+.notis input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.notis button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: red;
+    font-weight: bold;
+}
+
+.notis-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.total_compra{
+    text-align: center;
+}
+
+.total_compra button{
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: large;
+    margin-right: 20px;
+}
+
+.total_compra a{
+    text-decoration: none;
+    color: black;
+}
+
+.total_compra input{
+    border-radius: 5px;
+    align-items: center;
+}
+
+#botondcto{
+    font-size: medium;
+    align-items: center;
+}
+
+.info a{
+    background-color: red;
+}
+

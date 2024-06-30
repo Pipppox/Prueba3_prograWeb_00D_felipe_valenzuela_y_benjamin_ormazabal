@@ -1,0 +1,135 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Peluditos y peluditas</title>
+    <link rel="stylesheet" href="{% static 'pagina_mascotas/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="{% static 'pagina_mascotas/img/patadogOficial.png' %}">
+</head>
+<body>
+
+<style>
+    h1, h2 {
+        color: black;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: red;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #e5533a;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiar navbar-red navbar-texto-blanco">
+    <a id="icono_pag" href="{% url 'index' %}"><img src="{% static 'pagina_mascotas/img/patadogOficial.png' %}" alt="icono de la pagina" style="width: 40px; height: 40px; margin-top: -5px; margin-left: 20px;"></a>
+    <div class="container-fluid navbar-texto-blanco">
+        <a style="color: white; margin-left: 30px;" class="navbar-brand" href="{% url 'index' %}">Peluditos y peluditas</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Conoce sobre tus peluditos aquí 
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'adopta' %}">Adopta un peludito</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'crear_dieta' %}">Crea la dieta de tu peludito</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'info_animales' %}">Aprende sobre ellos</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'lista_productos' %}">Compra sus favoritos!</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <a class="nav-link" href="{% url 'ver_carrito' %}"><img src="{% static 'pagina_mascotas/img/carrito (1).png' %}" alt="contactanos xd" style="width: 45px; height: 45px; margin-bottom: -30px; margin-right: 20px;"></a>
+                <a class="nav-link" href="{% url 'contactanos' %}"><img src="{% static 'pagina_mascotas/img/telefono.png' %}" alt="Contacto" style="width: 27px; height: 27px; margin-bottom: -30px; margin-right: 20px;"></a>
+                <a style="color: white;" class="nav-link active" aria-current="page" href="{% url 'login' %}"><img src="{% static 'pagina_mascotas/img/login.png' %}" alt="Login" style="width: 60px; height: 60px; margin-right: 20px;"></a>
+            </form>
+        </div>
+    </div>
+</nav>
+<br>
+
+<h1 style="text-align: center;">Crea la dieta de tu peludito!</h1>
+<div class="container mt-5">
+    <h1 class="text-center">Crea la dieta de tu peludito</h1>
+    <form id="dietaForm">
+        <div class="mb-3">
+            <label for="tipoMascota" class="form-label">Tipo de Mascota</label>
+            <select class="form-select" id="tipoMascota" required>
+                <option value="" selected disabled>Selecciona el tipo de mascota</option>
+                <option value="perro">Perro</option>
+                <option value="gato">Gato</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="alimento" class="form-label">Tipo de Alimento</label>
+            <select class="form-select" id="alimento" required>
+                <option value="" selected disabled>Selecciona el tipo de alimento</option>
+                <option value="carbohidratos">Carbohidratos</option>
+                <option value="carne">Carne</option>
+                <option value="vegetales">Vegetales</option>
+                <option value="frutas">Frutas</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad (gramos)</label>
+            <input type="number" class="form-control" id="cantidad" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="agregarAlimento()">Agregar Alimento</button>
+    </form>
+    <hr>
+    <h2 class="text-center">Dieta Personalizada</h2>
+    <ul id="dietaLista" class="list-group"></ul>
+</div>
+
+<br>
+<br>
+
+<footer class="pie_pagina">
+  <div class="grupo1">
+    <div class="box">
+    </div>
+    <div class="box">
+      <h2>Sobre nosotros</h2>
+      <p>Somos una tienda que colabora con una fundacion que busca ayudar a los animales</p>
+      <p>Si quiere colaborar con nosotros buscanos en nuestras redes sociales aqui abajo</p>
+    </div>
+    <div class="box">
+      <h2>SIGUENOS</h2>
+      <div class="red_social">
+        <a href="https://www.instagram.com/p/C5hWB1nLl_s/" class=""><img src="{% static 'pagina_mascotas/img/logo insta.png' %}" alt="" height="100px"></a>
+          <a href="https://www.youtube.com/watch?v=n_hlMr-D0aM"><img src="{% static 'pagina_mascotas/img/logo yt.png' %}" alt="" height="50px"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="{% static 'pagina_mascotas/js/script4.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

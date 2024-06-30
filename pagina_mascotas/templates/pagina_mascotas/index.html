@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Peluditos y peluditas</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'pagina_mascotas/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'pagina_mascotas/img/patadogOficial.png' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiar navbar-red navbar-texto-blanco">
+      <a id="icono_pag" href="{% url 'index' %}"><img src="{% static 'pagina_mascotas/img/patadogOficial.png' %}" alt="icono de la pagina" style="width: 40px; height: 40px; margin-top: -5px; margin-left: 20px;"></a>
+      <div class="container-fluid navbar-texto-blanco">
+          <a style="color: white; margin-left: 30px;" class="navbar-brand" href="{% url 'index' %}">Peluditos y peluditas</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 3px;">
+                          Conoce sobre tus peluditos aquí 
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{% url 'adopta' %}">Adopta un peludito</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'crear_dieta' %}">Crea la dieta de tu peludito</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'info_animales' %}">Aprende sobre ellos</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="{% url 'lista_productos' %}">Compra sus favoritos!</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <form class="d-flex">
+                <a class="nav-link" href="{% url 'ver_carrito' %}"><img src="{% static 'pagina_mascotas/img/carrito (1).png' %}" alt="contactanos xd" style="width: 45px; height: 45px; margin-bottom: -30px; margin-right: 20px;"></a> 
+                <a class="nav-link" href="{% url 'contactanos' %}"><img src="{% static 'pagina_mascotas/img/telefono.png' %}" alt="contactanos xd" style="width: 27px; height: 27px; margin-bottom: -30px; margin-right: 20px;"></a> 
+                <a style="color: white;" class="nav-link active" aria-current="page" href="{% url 'login' %}"><img src="{% static 'pagina_mascotas/img/login.png' %}" alt="" style="width: 60px; height: 60px; margin-right: 20px;"></a>
+              </form>
+          </div>
+      </div>
+    </nav>
+    <br>
+    
+    <!--esto es el carrusel-->
+    <div id="carouselExampleRide" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'pagina_mascotas/img/superzoo1.jpg' %}" class="d-block w-100" alt="banner1">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'pagina_mascotas/img/super-ofertas-verano-desktop.jpg' %}" class="d-block w-100" alt="banner2">
+        </div>
+        <div class="carousel-item">
+          <img src="{% static 'pagina_mascotas/img/imbatible-mpets-desktop.jpg' %}" class="d-block w-100" alt="banner3">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <br>
+    <h1 style="text-align: center;">Tu tienda favorita con tus productos favoritos</h1>
+    <br>
+
+    <!--aqui las card -->
+    <div class="container">
+      <div class="row card1">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+              <div class="card">
+                  <img src="{% static 'pagina_mascotas/img/pug.png' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title text-center">Adopta a un peludito</h5>
+                      <p>Infórmate sobre nuestro programa de adopción</p>
+                      <br>
+                      <button class="btn btn-primary" style="background-color: red;;"><a style="color: white; text-decoration: none;" href="{% url 'adopta' %}">Adoptame</a></button>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+              <div class="card">
+                  <img src="{% static 'pagina_mascotas/img/comida.png' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title text-center">Crea la dieta de tu peludo</h5>
+                      <p>Encuentra los alimentos más nutritivos para tus peludos!</p>
+                      <button class="btn btn-primary" style="background-color: red;;"><a style="color: white; text-decoration: none;" href="{% url 'crear_dieta' %}">Crear / Ver dietas</a></button>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4">
+              <div class="card">
+                  <img src="{% static 'pagina_mascotas/img/productos/bravery1.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h5 class="card-title text-center">Compra tus productos</h5>
+                      <p>Los mejores productos de calidad al mejor precio</p>
+                      <br>
+                      <button class="btn btn-primary" style="background-color: red;;"><a style="color: white; text-decoration: none;" href="{% url 'lista_productos' %}">Comprar</a></button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+    <br>
+    
+    <div class="notis">
+      <div class="notis-content">
+          <img class="foto_husky" src="{% static 'pagina_mascotas/img/husky.png' %}" alt="Husky">
+          <div class="notis-text">
+              <h2>¿Deseas recibir ofertas en tu email?</h2>
+              <input type="email" placeholder="Email" name="" id="texto_oferta">
+              <button id="notis_mail" type="button">¡Únete!</button>
+          </div>
+      </div>
+    </div>
+
+    
+  
+    <br>
+    <br>
+  
+  <footer class="pie_pagina">
+    <div class="grupo1">
+      <div class="box">
+      </div>
+      <div class="box">
+        <h2>Sobre nosotros</h2>
+        <p>Somos una tienda que colabora con una fundación que busca ayudar a los animales</p>
+        <p>Si quiere colaborar con nosotros búsquenos en nuestras redes sociales aquí abajo</p>
+      </div>
+      <div class="box">
+        <h2>SÍGUENOS</h2>
+        <div class="red_social">
+          <a href="https://www.instagram.com/p/C5hWB1nLl_s/" class=""><img src="{% static 'pagina_mascotas/img/logo insta.png' %}" alt="" height="100px"></a>
+          <a href="https://www.youtube.com/watch?v=n_hlMr-D0aM"><img src="{% static 'pagina_mascotas/img/logo yt.png' %}" alt="" height="50px"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+  <script src="{% static 'pagina_mascotas/js/script2.js' %}"></script>
+  <script src="{% static 'pagina_mascotas/js/script6.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
